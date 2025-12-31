@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence } from 'framer-motion'
 import Preloader from './components/layout/Preloader'
 import ScrollProgressBar from './components/layout/ScrollProgressBar'
 import Hero from './components/sections/Hero'
