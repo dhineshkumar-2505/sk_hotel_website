@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SK Saiva Unavaham - Luxury Menu</title>
+    <style>
+        /* REFINED PREMIUM STYLES for A3 */
+        @import url('https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;600;800&family=Playfair+Display:ital,wght@0,400;0,600;0,800;1,400&family=Montserrat:wght@300;400;500;700&display=swap');
+
+        /* --- PAGE SETUP --- */
+        @media print {
+            @page {
+                size: 297mm 420mm;
+                /* A3 Portrait */
+                margin: 0;
+            }
+
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            #download-btn {
+                display: none !important;
+            }
+        }
+
+        body {
+            width: 297mm;
+            height: 420mm;
+            margin: 0 auto;
+            background-color: #fffbf0;
+            /* Soft warm white/cream */
+            font-family: 'Playfair Display', serif;
+            color: #3e2723;
+            /* Dark Brown Text */
+            position: relative;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* Vertically Center Content */
+            overflow: hidden;
+        }
+
+        /* --- THIN DOUBLE ORNAMENTAL BORDER --- */
+        .border-container {
+            position: absolute;
+            top: 10mm;
+            left: 10mm;
+            right: 10mm;
+            bottom: 10mm;
+            pointer-events: none;
+            z-index: 100;
+        }
+
+        .border-outer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 1px solid #8d6e63;
+            /* Subtle Brown */
+        }
+
+        .border-inner {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border: 2px solid #d4af37;
+            /* Gold */
+        }
+
+        /* Corner Motifs (Simple & Elegant) */
+        .corner {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #8d6e63;
+            background: #fffbf0;
+            z-index: 101;
+        }
+
+        .c-tl {
+            top: -2px;
+            left: -2px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .c-tr {
+            top: -2px;
+            right: -2px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .c-bl {
+            bottom: -2px;
+            left: -2px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .c-br {
+            bottom: -2px;
+            right: -2px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .corner::after {
+            content: '♦';
+            position: absolute;
+            color: #d4af37;
+            font-size: 16px;
+            top: 0;
+            left: 4px;
+        }
+
+        /* --- HEADER --- */
+        header {
+            width: 220mm;
+            /* Match content width */
+            margin: 0 auto 10mm;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo-area {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 8mm;
+        }
+
+        .logo-container-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 2px solid #8d6e63;
+            padding: 4px;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .brand-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        /* Split Names Container */
+        .hotel-names {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 2px solid #d4af37;
+            /* Gold Underline */
+            padding-bottom: 10px;
+            margin-bottom: 5mm;
+        }
+
+        h1.tamil-title {
+            font-family: 'Mukta Malar', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            color: #4a0404;
+            /* Maroon */
+            margin: 0;
+            text-align: left;
+        }
+
+        h2.english-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #5d4037;
+            /* Brown */
+            margin: 0;
+            text-align: right;
+        }
+
+        /* SECTION TITLE (Soft Capsule) */
+        .divider {
+            margin: 0 auto 10mm;
+            text-align: center;
+        }
+
+        .divider-text {
+            display: inline-block;
+            background: #fff;
+            padding: 8px 30px;
+            font-size: 22px;
+            font-weight: 700;
+            color: #4a0404;
+            border: 1px solid #d4af37;
+            border-radius: 50px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* MENU LIST */
+        .menu-container {
+            width: 220mm;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .menu-cell {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6mm;
+            border-bottom: 1px dashed #d7ccc8;
+            /* Very subtle separator */
+            padding-bottom: 4mm;
+        }
+
+        .menu-cell:last-child {
+            border-bottom: none;
+        }
+
+        .col-tamil {
+            flex: 1;
+            text-align: left;
+            /* Tamil names on left column */
+            font-family: 'Mukta Malar', sans-serif;
+            font-size: 26px;
+            font-weight: 700;
+            color: #3e2723;
+        }
+
+        .col-english {
+            flex: 1;
+            text-align: right;
+            /* English names on right column */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: #5d4037;
+        }
+
+        .col-image {
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            margin: 0 20px;
+        }
+
+        .img-frame {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            /* Circle images */
+            overflow: hidden;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .img-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: 15mm;
+            text-align: center;
+            width: 100%;
+        }
+
+        .footer-content {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            color: #8d6e63;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        #download-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #4a0404, #7a0c0c);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        #download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="border-container">
+        <div class="border-outer"></div>
+        <div class="border-inner"></div>
+        <div class="corner c-tl"></div>
+        <div class="corner c-tr"></div>
+        <div class="corner c-bl"></div>
+        <div class="corner c-br"></div>
+    </div>
+
+    <header>
+        <div class="logo-area">
+            <div class="logo-container-img">
+                <img src="images/sasikala_kitchen.jpeg" alt="SK Logo" class="brand-logo">
+            </div>
+        </div>
+
+        <div class="hotel-names">
+            <h1 class="tamil-title">SK சைவ உணவகம்</h1>
+            <h2 class="english-title">SK Tiffin Center</h2>
+        </div>
+    </header>
+
+    <div class="divider">
+        <div class="divider-text">Morning Tiffin</div>
+    </div>
+
+    <!-- MENU GRID -->
+    <div class="menu-container">
+
+        <!-- Idly -->
+        <div class="menu-cell">
+            <div class="col-tamil">இட்லி</div>
+            <div class="col-image">
+                <div class="img-frame"><img src="images/idli.jpg" alt="Idly"></div>
+            </div>
+            <div class="col-english">Idly</div>
+        </div>
+
+        <!-- Dosa -->
+        <div class="menu-cell">
+            <div class="col-tamil">தோசை</div>
+            <div class="col-image">
+                <div class="img-frame"><img src="images/dosa.jpg" alt="Dosa"></div>
+            </div>
+            <div class="col-english">Dosa</div>
+        </div>
+
+        <!-- Poori -->
+        <div class="menu-cell">
+            <div class="col-tamil">பூரி</div>
+            <div class="col-image">
+                <div class="img-frame"><img src="images/poori.avif" alt="Poori"></div>
+            </div>
+            <div class="col-english">Poori</div>
+        </div>
+
+        <!-- Pongal -->
+        <div class="menu-cell">
+            <div class="col-tamil">பொங்கல்</div>
+            <div class="col-image">
+                <div class="img-frame"><img src="images/PONGAL.webp" alt="Pongal"></div>
+            </div>
+            <div class="col-english">Pongal</div>
+        </div>
+
+        <!-- Vada -->
+        <div class="menu-cell">
+            <div class="col-tamil">வடை</div>
+            <div class="col-image">
+                <div class="img-frame"><img src="images/vada.webp" alt="Vada"></div>
+            </div>
+            <div class="col-english">Vada</div>
+        </div>
+
+        <!-- Appam & Coconut Milk -->
+        <div class="menu-cell">
+            <div class="col-tamil">ஆப்பம் & தேங்காய் பால்</div>
+            <div class="col-image">
+                <div class="img-frame"><img src="images/idiyapam with coconut milk.jpeg" alt="Appam"></div>
+            </div>
+            <div class="col-english">Appam & Coconut Milk</div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            Ambattur &nbsp;|&nbsp; 8098878937 &nbsp;|&nbsp; Pure Vegetarian
+        </div>
+    </footer>
+
+    <button id="download-btn" onclick="window.print()">DOWNLOAD & PRINT</button>
+
+</body>
+
+</html>
